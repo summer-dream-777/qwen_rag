@@ -1,0 +1,6 @@
+data/
+experiments/
+qrag_venv/
+wandb/
+
+*.pyc

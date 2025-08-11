@@ -1,0 +1,52 @@
+# Debug SFT Training Configuration - for quick testing
+model:
+  name_or_path: "Qwen/Qwen3-0.6B"  # Using smaller model for faster testing
+  use_lora: true
+  lora_config:
+    r: 16  # Smaller rank for faster training
+    lora_alpha: 32
+    lora_dropout: 0.1
+    target_modules:
+      - "q_proj"
+      - "k_proj"
+      - "v_proj"
+      - "o_proj"
+    task_type: "CAUSAL_LM"
+  load_in_8bit: false
+  load_in_4bit: false
+
+data:
+  max_length: 512  # Shorter sequences for faster processing
+  train_batch_size: 2
+  eval_batch_size: 4
+  num_workers: 2
+
+training:
+  num_epochs: 1  # Just 1 epoch for testing
+  learning_rate: 2e-4
+  warmup_ratio: 0.1
+  gradient_accumulation_steps: 1
+  gradient_checkpointing: true
+  fp16: true
+  optim: "paged_adamw_32bit"
+  lr_scheduler_type: "constant"  # Simple scheduler for testing
+  save_strategy: "steps"
+  save_steps: 10  # Save frequently for testing
+  eval_strategy: "steps"
+  eval_steps: 10
+  logging_steps: 1
+  save_total_limit: 2
+  load_best_model_at_end: false  # Skip for speed
+  metric_for_best_model: "eval_loss"
+  greater_is_better: false
+  
+  # Early stopping - disabled for quick test
+  early_stopping_patience: 999
+  early_stopping_threshold: 0.0001
+
+wandb:
+  project: "qwen-customer-support-debug"
+  name: "sft-debug"
+  tags: ["sft", "debug", "test"]
+
+output_dir: "experiments/{timestamp}/sft_debug"

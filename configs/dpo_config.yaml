@@ -1,0 +1,59 @@
+# DPO Training Configuration
+model:
+  name_or_path: "./experiments/{sft_timestamp}/sft/best_model"  # SFT checkpoint
+  use_lora: true
+  lora_config:
+    r: 32
+    lora_alpha: 64
+    lora_dropout: 0.1
+    target_modules:
+      - "q_proj"
+      - "k_proj"
+      - "v_proj"
+      - "o_proj"
+      - "gate_proj"
+      - "up_proj"
+      - "down_proj"
+    task_type: "CAUSAL_LM"
+
+data:
+  dataset_name: "SAGI-1/ultrafeedback_binarized_dpo"
+  dataset_split: "train_prefs"
+  max_length: 1024
+  max_prompt_length: 512
+  train_batch_size: 2
+  eval_batch_size: 4
+  num_workers: 4
+
+training:
+  num_epochs: 1
+  learning_rate: 5e-5
+  warmup_ratio: 0.1
+  gradient_accumulation_steps: 8
+  gradient_checkpointing: true
+  fp16: true
+  optim: "rmsprop"
+  lr_scheduler_type: "linear"
+  
+  # DPO specific
+  beta: 0.1  # KL regularization
+  label_smoothing: 0.0
+  loss_type: "sigmoid"  # or "hinge", "ipo"
+  
+  # Saving and evaluation
+  save_strategy: "steps"
+  save_steps: 50
+  eval_strategy: "steps"
+  eval_steps: 50
+  logging_steps: 10
+  save_total_limit: 3
+  load_best_model_at_end: true
+  metric_for_best_model: "eval_rewards_accuracy"
+  greater_is_better: true
+
+wandb:
+  project: "qwen-customer-support"
+  name: "dpo-training"
+  tags: ["dpo", "preference-learning"]
+
+output_dir: "experiments/{timestamp}/dpo"
