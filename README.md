@@ -21,7 +21,7 @@ A fine-tuned customer support chatbot using Qwen models with SFT (Supervised Fin
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd rat_chatbot
+cd rag_chatbot
 ```
 
 2. Create virtual environment:
