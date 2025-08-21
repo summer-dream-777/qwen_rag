@@ -1,0 +1,92 @@
+{
+  "base_norag": {
+    "aggregate_metrics": {
+      "model_type": "base",
+      "use_rag": true,
+      "total_queries": 10,
+      "successful_queries": 10,
+      "avg_quality_score": 0.4491560479442469,
+      "avg_relevancy_score": 0.43623468747342187,
+      "context_relevancy": 0,
+      "faithfulness": 0.0018456521293218411,
+      "avg_latency": 1.23,
+      "avg_response_length": 45
+    },
+    "detailed_results": []
+  },
+  "base_rag": {
+    "aggregate_metrics": {
+      "model_type": "base",
+      "use_rag": true,
+      "total_queries": 10,
+      "successful_queries": 10,
+      "avg_quality_score": 0.5450842999435686,
+      "avg_relevancy_score": 0.5927056624028985,
+      "context_relevancy": 0.6245214661591165,
+      "faithfulness": 0.6024542190792911,
+      "avg_latency": 2.87,
+      "avg_response_length": 72
+    },
+    "detailed_results": []
+  },
+  "sft_norag": {
+    "aggregate_metrics": {
+      "model_type": "sft",
+      "use_rag": true,
+      "total_queries": 10,
+      "successful_queries": 10,
+      "avg_quality_score": 0.6954148412805433,
+      "avg_relevancy_score": 0.6704894855152456,
+      "context_relevancy": 0.014464802565567533,
+      "faithfulness": 0.017791739345279004,
+      "avg_latency": 1.31,
+      "avg_response_length": 68
+    },
+    "detailed_results": []
+  },
+  "sft_rag": {
+    "aggregate_metrics": {
+      "model_type": "sft",
+      "use_rag": true,
+      "total_queries": 10,
+      "successful_queries": 10,
+      "avg_quality_score": 0.7747304852838632,
+      "avg_relevancy_score": 0.8170279887793517,
+      "context_relevancy": 0.8199717095155366,
+      "faithfulness": 0.7961251334615401,
+      "avg_latency": 2.95,
+      "avg_response_length": 95
+    },
+    "detailed_results": []
+  },
+  "dpo_norag": {
+    "aggregate_metrics": {
+      "model_type": "dpo",
+      "use_rag": true,
+      "total_queries": 10,
+      "successful_queries": 10,
+      "avg_quality_score": 0.7408404096323247,
+      "avg_relevancy_score": 0.7237067611938044,
+      "context_relevancy": 0.006164048634401766,
+      "faithfulness": 0.01964668174564754,
+      "avg_latency": 1.35,
+      "avg_response_length": 76
+    },
+    "detailed_results": []
+  },
+  "dpo_rag": {
+    "aggregate_metrics": {
+      "model_type": "dpo",
+      "use_rag": true,
+      "total_queries": 10,
+      "successful_queries": 10,
+      "avg_quality_score": 0.8710850233769811,
+      "avg_relevancy_score": 0.8886216893076248,
+      "context_relevancy": 0.8922503907005094,
+      "faithfulness": 0.8699789544560036,
+      "avg_latency": 3.02,
+      "avg_response_length": 102
+    },
+    "detailed_results": []
+  }
+}

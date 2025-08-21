@@ -1,0 +1,7 @@
+Model,RAG,Config,Quality Score,Relevancy Score,Context Relevancy,Faithfulness,Latency (s),Avg Response Length
+BASE,Yes,base_norag,0.449,0.436,0.000,0.002,1.23,45
+BASE,Yes,base_rag,0.545,0.593,0.625,0.602,2.87,72
+SFT,Yes,sft_norag,0.695,0.670,0.014,0.018,1.31,68
+SFT,Yes,sft_rag,0.775,0.817,0.820,0.796,2.95,95
+DPO,Yes,dpo_norag,0.741,0.724,0.006,0.020,1.35,76
+DPO,Yes,dpo_rag,0.871,0.889,0.892,0.870,3.02,102
